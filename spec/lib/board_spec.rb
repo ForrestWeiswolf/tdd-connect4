@@ -36,6 +36,24 @@ describe Board do
 				expect(board.winner).to eql("X")
 			end
 		end
+		context "when a player has filled the ascending diagonal" do
+			it "returns that player's token" do
+				(0..3).each do |n|
+					n.times{board.play(n, "O")}
+					board.play(n, "X")
+				end
+				expect(board.winner).to eql("X")
+			end
+		end
+		context "when a player has filled the descending diagonal" do
+			it "returns that player's token" do
+				(0..3).reverse_each do |n|
+					(3-n).times{board.play(n, "O")}
+					board.play(n, "X")
+				end
+				expect(board.winner).to eql("X")
+			end
+		end
 
 	end
 end
