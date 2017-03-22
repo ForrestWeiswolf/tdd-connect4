@@ -15,6 +15,10 @@ class Board
 			#if a column is all the same token:
 			result = @grid[0][n] if @grid.all?{|row| row[n] == @grid[0][n]} && @grid[0][n]
 		end
+		#diagonals:
+		result = grid[0][0] if (0..3).all?{|n| grid[n][n] == grid[0][0]} && grid[0][0]
+		result = grid[3][0] if (0..3).all?{|n| grid[3-n][n] == grid[3][0]} && grid[3][0]
+
 		return result
 	end
 
@@ -27,4 +31,25 @@ class Board
 			end
 		end
 	end
+
+	def invalid_move(col)
+		#not sure whether this should be in Board class
+		if (col > 3) | (col < 0)
+		 	return "That's not a space on the board."
+		elsif @grid[col][0]
+		 	return "That column is already filled."
+		else
+			return false
+		end
+	end
+
+
+	def show
+		result = ""
+		@grid.each do |row|
+			result = result + row.inspect + "\n"
+		end
+		return result
+	end
+
 end
