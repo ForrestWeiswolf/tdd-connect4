@@ -11,12 +11,12 @@ describe Board do
 	describe ".play" do
 		it "puts a token on the bottom row of an empty board" do
 			board.play(0, "X")
-			expect(board.grid[0][3]).to eql("X")
+			expect(board.grid[3][0]).to eql("X")
 		end
 		it "puts a token above all of the filled space in a column" do
 			board.play(0, "X")
 			board.play(0, "O")
-			expect(board.grid[0][2]).to eql("O")
+			expect(board.grid[2][0]).to eql("O")
 		end
 	end
 
@@ -56,7 +56,15 @@ describe Board do
 		end
 		context "when the board is full and no-one has won" do
 			it "returns 'DRAW'" do 
-				pending
+				(0..2).each do |col|
+					3.times{board.play(col, "X")}
+					board.play(col, "O")
+				end
+				3.times{board.play(3, "O")}
+				board.play(3, "+")
+				puts board.show
+
+				expect(board.winner).to eql("DRAW")
 			end
 		end
 	end
@@ -75,7 +83,7 @@ describe Board do
 		end
 		context "when the column is already full" do 
 			it "returns 'That space is already filled.'" do
-				(0..3).each{|n| board.play(0, "X")}
+				4.times{|n| board.play(0, "X")}
 				expect(board.invalid_move(0)).to eql("That column is already filled.")
 			end
 		end
