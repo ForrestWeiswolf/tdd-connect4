@@ -16,7 +16,7 @@ class Game
 			self.turn
 		else
 			board.play(move, @current.token)
-			#@current = players[players.find(@current)+1]
+			@current = players[players.find_index(@current)+1]
 		end
 	end
 end
