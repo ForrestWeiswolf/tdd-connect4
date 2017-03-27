@@ -28,3 +28,5 @@ class Player
 		end
 	end
 end
+
+puts "Player loaded"

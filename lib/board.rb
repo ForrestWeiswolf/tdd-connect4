@@ -54,5 +54,6 @@ class Board
 		end
 		return result
 	end
-
 end
+
+puts "Board loaded"
