@@ -31,8 +31,8 @@ class Board
 	#the token 'drops' to the lowest empty space in the column it's played in
 	def play(col, token)
 		(0..6).reverse_each do |row|
-			unless @grid[row][col]
-				@grid[row][col] = token
+			unless @grid[col][row]
+				@grid[col][row] = token
 				break
 			end
 		end
