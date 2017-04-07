@@ -4,8 +4,8 @@ describe Board do
 	let!(:board) do
 		Board.new()
 	end
-	it 'has a 2d array' do
-		expect(board.grid[0].class).to eql(Array)
+	it 'has a 7*6 array' do
+		expect(board.grid[6].size).to eql(6)
 	end
 
 	# describe ".play" do
