@@ -1,10 +1,13 @@
 class Board
 	attr_reader :grid
 	def initialize()
-		@grid = [[nil, nil, nil, nil], 
-				[nil, nil, nil, nil],
-				[nil, nil, nil, nil],
-				[nil, nil, nil, nil],]
+		@grid = []
+		7.times do 
+			@grid.push([])
+			6.times do 
+				@grid[-1].push(nil)
+			end
+		end
 	end
 
 	# def winner
@@ -25,15 +28,15 @@ class Board
 	# 	return result
 	# end
 
-	# #the token 'drops' to the lowest empty space in the column it's played in
-	# def play(col, token)
-	# 	(0..3).reverse_each do |row|
-	# 		unless @grid[row][col]
-	# 			@grid[row][col] = token
-	# 			break
-	# 		end
-	# 	end
-	# end
+	#the token 'drops' to the lowest empty space in the column it's played in
+	def play(col, token)
+		(0..6).reverse_each do |row|
+			unless @grid[row][col]
+				@grid[row][col] = token
+				break
+			end
+		end
+	end
 
 	# def invalid_move(col)
 	# 	#not sure whether this should be in Board class
