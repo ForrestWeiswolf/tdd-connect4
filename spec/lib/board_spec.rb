@@ -20,10 +20,10 @@ describe Board do
 		end
 	end
 
-	# describe ".winner" do 
-	# 	it "returns false when neither player has won" do
-	# 		expect(board.winner).to eql(false)
-	# 	end
+	describe ".winner" do 
+		it "returns false when neither player has won" do
+			expect(board.winner).to eql(false)
+		end
 	# 	context "when a player has filled a whole column" do
 	# 		it "returns that player's token" do
 	# 			4.times {board.play(0, "X")}
@@ -67,7 +67,7 @@ describe Board do
 	# 			expect(board.winner).to eql("DRAW")
 	# 		end
 	# 	end
-	# end
+	end
 
 	# describe ".invalid_move" do
 	# 	context "when given a valid move" do 
