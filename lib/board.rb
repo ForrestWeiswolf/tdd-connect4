@@ -23,8 +23,7 @@ class Board
 	end
 
 	def check_for_win(col, row)
-		result = false
-		(-3..0).any? do |offset|
+		return (-3..0).any? do |offset|
 			(0..3).all? do |n|
 				(0..6).include? (col+offset+n) and @grid[col+offset+n][row] == @grid[col][row]
 			end
