@@ -31,7 +31,7 @@ describe Board do
 				expect(board.winner).to eql("X")
 			end
 		end
-		context "when a player has a line of four vertically" do
+		context "when a player has a line of four horizontally" do
 			it "returns that player's token" do
 				(1..4).each{|n| board.play(n, "X")}
 				expect(board.winner).to eql("X")
