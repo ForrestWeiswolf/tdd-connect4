@@ -16,7 +16,17 @@ class Board
 		(0..6).reverse_each do |row|
 			unless @grid[col][row]
 				@grid[col][row] = token
+				@winner = token if check_for_win(col, row)
 				break
+			end
+		end
+	end
+
+	def check_for_win(col, row)
+		result = false
+		(-3..0).any? do |offset|
+			(0..3).all? do |n|
+				(0..6).include? (col+offset+n) and @grid[col+offset+n][row] == @grid[col][row]
 			end
 		end
 	end
