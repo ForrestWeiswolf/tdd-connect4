@@ -24,12 +24,13 @@ describe Board do
 		it "returns false when neither player has won" do
 			expect(board.winner).to eql(false)
 		end
-	# 	context "when a player has filled a whole column" do
-	# 		it "returns that player's token" do
-	# 			4.times {board.play(0, "X")}
-	# 			expect(board.winner).to eql("X")
-	# 		end
-	# 	end
+		context "when a player has a line of four vertically" do
+			it "returns that player's token" do
+				board.play(0, "O")
+				4.times {board.play(0, "X")}
+				expect(board.winner).to eql("X")
+			end
+		end
 	# 	context "when a player has filled a whole row" do
 	# 		it "returns that player's token" do
 	# 			(0..3).each{|n| board.play(n, "X")}
