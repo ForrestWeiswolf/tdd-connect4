@@ -11,12 +11,12 @@ describe Board do
 	describe ".play" do
 		it "puts a token on the bottom row of an empty board" do
 			board.play(0, "X")
-			expect(board.grid[0][6]).to eql("X")
+			expect(board.grid[0][5]).to eql("X")
 		end
 		it "puts a token above all of the filled space in a column" do
 			board.play(0, "X")
 			board.play(0, "O")
-			expect(board.grid[0][5]).to eql("O")
+			expect(board.grid[0][4]).to eql("O")
 		end
 	end
 
