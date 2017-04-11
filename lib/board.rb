@@ -23,11 +23,18 @@ class Board
 	end
 
 	def check_for_win(col, row)
-		return (-3..0).any? do |offset|
-			(0..3).all? do |n|
+		#not DRY; should refactor
+		horizontal = (-3..0).any? do |offset|
+			(0..3).all? do |n| 
 				(0..6).include? (col+offset+n) and @grid[col+offset+n][row] == @grid[col][row]
 			end
 		end
+		vertical = (-3..0).any? do |offset|
+			(0..3).all? do |n|
+				(0..5).include? (row+offset+n) and @grid[col][row+offset+n] == @grid[col][row]
+			end
+		end
+		return (vertical or horizontal)
 	end
 
 	# def invalid_move(col)
