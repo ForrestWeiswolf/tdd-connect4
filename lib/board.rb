@@ -13,7 +13,7 @@ class Board
 
 	#the token 'drops' to the lowest empty space in the column it's played in
 	def play(col, token)
-		(0..6).reverse_each do |row|
+		(0..5).reverse_each do |row|
 			unless @grid[col][row]
 				@grid[col][row] = token
 				@winner = token if check_for_win(col, row)
