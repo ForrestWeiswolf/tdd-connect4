@@ -57,19 +57,18 @@ describe Board do
 				expect(board.winner).to eql("X")
 			end
 		end
-	# 	context "when the board is full and no-one has won" do
-	# 		it "returns 'DRAW'" do 
-	# 			(0..2).each do |col|
-	# 				3.times{board.play(col, "X")}
-	# 				board.play(col, "O")
-	# 			end
-	# 			3.times{board.play(3, "O")}
-	# 			board.play(3, "+")
-	# 			puts board.show
+		context "when the board is full and no-one has won" do
+			it "returns 'DRAW'" do 
+				(0..6).each do |col|
+	 				(0..5).each do |row|
+	 					board.play(col, "#{col}#{row}")
+	 				end
+	 			end
+	 			puts board.show
 
-	# 			expect(board.winner).to eql("DRAW")
-	# 		end
-	# 	end
+	 			expect(board.winner).to eql("DRAW")
+	 		end
+	 	end
 	end
 
 	# describe ".invalid_move" do
