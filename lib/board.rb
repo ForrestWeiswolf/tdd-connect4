@@ -34,7 +34,21 @@ class Board
 				(0..5).include?(row+offset+n) && @grid[col][row+offset+n] == @grid[col][row]
 			end
 		end
-		return (vertical || horizontal)
+		adiag = (-3..0).any? do |offset|
+			(0..3).all? do |n|
+				(0..5).include?(row+offset+n) \
+				&& (0..6).include?(col+offset+n) \
+				&& @grid[col+offset+n][row+offset+n] == @grid[col][row]
+			end
+		end
+		ddiag = (-3..0).any? do |offset|
+			(0..3).all? do |n|
+				(0..5).include?(row+offset-n) \
+				&& (0..6).include?(col+offset+n) \
+				&& @grid[col+offset+n][row+offset-n] == @grid[col][row]
+			end
+		end 
+		return (vertical || horizontal || adiag || ddiag)
 	end
 
 	# def invalid_move(col)
