@@ -56,16 +56,16 @@ class Board
 		end
 	end
 
-	# def invalid_move(col)
-	# 	#not sure whether this should be in Board class
-	# 	if (col > 3) | (col < 0)
-	# 	 	return "That's not a space on the board."
-	# 	elsif @grid[col][0]
-	# 	 	return "That column is already filled."
-	# 	else
-	# 		return false
-	# 	end
-	# end
+	def invalid_move(col)
+		#not sure whether this should be in Board class
+		if (col > 6) | (col < 0)
+		 	return "That's not a space on the board."
+		elsif @grid[col][0]
+		 	return "That column is already filled."
+		else
+			return false
+		end
+	end
 
 
 	def show
