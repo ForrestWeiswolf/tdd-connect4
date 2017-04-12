@@ -71,24 +71,23 @@ describe Board do
 	 	end
 	end
 
-	# describe ".invalid_move" do
-	# 	context "when given a valid move" do 
-	# 		it "returns false" do
-	# 			expect(board.invalid_move(1)).to eql(false)
-	# 		end
-	# 	end
-	# 	context "when given coordinates outside the board" do 
-	# 		it "returns 'That's not a space on the board.'" do
-	# 			expect(board.invalid_move(12)).to eql("That's not a space on the board.")
-	# 			expect(board.invalid_move(-1)).to eql("That's not a space on the board.")
-	# 		end
-	# 	end
-	# 	context "when the column is already full" do 
-	# 		it "returns 'That space is already filled.'" do
-	# 			4.times{|n| board.play(0, "X")}
-	# 			expect(board.invalid_move(0)).to eql("That column is already filled.")
-	# 		end
-	# 	end
-	# end
-
+	describe ".invalid_move" do
+		context "when given a valid move" do 
+			it "returns false" do
+				expect(board.invalid_move(1)).to eql(false)
+			end
+		end
+		context "when given coordinates outside the board" do 
+			it "returns 'That's not a space on the board.'" do
+				expect(board.invalid_move(12)).to eql("That's not a space on the board.")
+				expect(board.invalid_move(-1)).to eql("That's not a space on the board.")
+			end
+		end
+		context "when the column is already full" do 
+			it "returns 'That space is already filled.'" do
+				6.times{|n| board.play(0, "X")}
+				expect(board.invalid_move(0)).to eql("That column is already filled.")
+			end
+		end
+	end
 end
