@@ -49,6 +49,8 @@ class Board
 		end 
 		if win
 			return @grid[col][row]
+		elsif @grid.flatten.all?
+			return "DRAW"
 		else
 			return false
 		end
