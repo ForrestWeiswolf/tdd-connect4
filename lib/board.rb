@@ -16,7 +16,7 @@ class Board
 		(0..5).reverse_each do |row|
 			unless @grid[col][row]
 				@grid[col][row] = token
-				@winner = token if check_for_win(col, row)
+				@winner = check_for_win(col, row) if check_for_win(col, row)
 				break
 			end
 		end
@@ -24,30 +24,34 @@ class Board
 
 	def check_for_win(col, row)
 		#not DRY; should refactor
-		result = false
+		win = false
 		(-3..0).each do |offset|
 			#horizontal
-			result = true if (0..3).all? do |n| 
+			win = true if (0..3).all? do |n| 
 				(0..6).include?(col+offset+n) && @grid[col+offset+n][row] == @grid[col][row]
 			end
 			#vertical 
-			result = true if (0..3).all? do |n|
+			win = true if (0..3).all? do |n|
 				(0..5).include?(row+offset+n) && @grid[col][row+offset+n] == @grid[col][row]
 			end
 			#ascending diagonal
-			result = true if (0..3).all? do |n|
+			win = true if (0..3).all? do |n|
 				(0..5).include?(row+offset+n) \
 				&& (0..6).include?(col+offset+n) \
 				&& @grid[col+offset+n][row+offset+n] == @grid[col][row]
 			end
 			#descending diagonal
-			result = true if (0..3).all? do |n|
+			win = true if (0..3).all? do |n|
 				(0..5).include?(row+offset-n) \
 				&& (0..6).include?(col+offset+n) \
 				&& @grid[col+offset+n][row+offset-n] == @grid[col][row]
 			end
 		end 
-		return result
+		if win
+			return win
+		else
+			return false
+		end
 	end
 
 	# def invalid_move(col)
