@@ -48,7 +48,7 @@ class Board
 			end
 		end 
 		if win
-			return win
+			return @grid[col][row]
 		else
 			return false
 		end
