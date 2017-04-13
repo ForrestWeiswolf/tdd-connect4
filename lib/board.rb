@@ -69,11 +69,6 @@ class Board
 
 
 	def show
-		result = ""
-		@grid.each do |row|
-			result = result + row.inspect + "\n"
-		end
-		return result
 	end
 end
 
