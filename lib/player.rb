@@ -5,7 +5,7 @@ class Player
 	end
 
 	def move(board)
-		puts board
+		puts board.show
 		puts "Where would you like to drop a piece, player #{@token}?"
 		move = parse_move(gets.chomp)
 		return move	
