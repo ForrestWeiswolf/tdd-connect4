@@ -88,4 +88,13 @@ describe Board do
 			end
 		end
 	end
+
+	describe ".show" do 
+		it "shows an empty board" do 
+			empty_shown = "— — — — — — —\n"*6
+			expect(board.show).to eql(empty_shown)
+		end
+		it "shows a board with pieces on it" do 
+		end
+	end
 end
