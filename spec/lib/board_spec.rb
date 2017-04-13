@@ -64,8 +64,6 @@ describe Board do
 	 					board.play(col, "#{col}#{row}")
 	 				end
 	 			end
-	 			puts board.show
-
 	 			expect(board.winner).to eql("DRAW")
 	 		end
 	 	end
