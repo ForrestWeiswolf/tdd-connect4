@@ -95,6 +95,9 @@ describe Board do
 			expect(board.show).to eql(empty_shown)
 		end
 		it "shows a board with pieces on it" do 
+			6.times{ board.play(0, "X") }
+			col_shown = "X — — — — — —\n"*6
+			expect(board.show).to eql(col_shown)
 		end
 	end
 end
